@@ -50,7 +50,7 @@ class NN_Model:
     def back_propagation(self, f2_norm: np.ndarray, learning_rate: float) -> None:
         delta_2 = np.copy(f2_norm)
         delta_2[range(self.x.shape[0]), self.y] -= 1
-        delta_w2 = (self.f1.T).dot(delta_2)
+        delta_w2 = (self.f1.T).dot(delta_2) 
         delta_b2 = np.sum(delta_2, axis=0, keepdims=True)
 
         delta_1 = delta_2.dot(self.W2.T)*(1-np.power(np.tanh(self.z1),2))
